@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom color palette using CSS variables */
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  /* Border radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-in: slide-in 0.3s ease-out;
+  --animate-scale-in: scale-in 0.2s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-in {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+}
+
+/* Spooky background pattern */
+.spooky-bg {
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(147, 51, 234, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 30% 80%, rgba(99, 102, 241, 0.02) 0%, transparent 50%);
+  position: relative;
+}
+
+.spooky-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(147, 51, 234, 0.01) 2px, rgba(147, 51, 234, 0.01) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(236, 72, 153, 0.01) 2px, rgba(236, 72, 153, 0.01) 4px);
+  pointer-events: none;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Cozy spooky theme - pink/purple/cyan/indigo/black */
+    --background: 270 30% 6%;
+    --foreground: 300 100% 95%;
+    --card: 270 25% 10%;
+    --card-foreground: 300 100% 95%;
+    --primary: 280 80% 70%; /* Soft purple-pink */
+    --primary-foreground: 270 30% 6%;
+    --secondary: 250 40% 20%;
+    --secondary-foreground: 300 100% 95%;
+    --muted: 270 20% 12%;
+    --muted-foreground: 270 20% 70%;
+    --accent: 300 50% 30%;
+    --accent-foreground: 300 100% 95%;
+    --border: 270 25% 18%;
+    --input: 270 25% 18%;
+    --ring: 280 80% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  /* Screen reader only utility class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+

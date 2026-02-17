@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Database files
+data/*.db
+data/*.db-shm
+data/*.db-wal
+
+# OAuth tokens and cached data
+data/google-token.json
+data/calendar-cache.json
+data/calendar-import-plan.json
+data/spotify-token.json
+data/spotify-cache.json
+data/spotify-cache-real.json
+data/spotify-import-plan.json
+data/jira-tickets-raw.json
+data/jira-import-plan.json
+data/*.json
+
+# Test data
+test/*.db
+test/*.db-shm
+test/*.db-wal
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
