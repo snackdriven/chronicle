@@ -11,37 +11,39 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
-    "mcp": "tsx src/mcp-server.ts"
+    "mcp": "tsx src/mcp-server.ts",
+    "build:mcp": "esbuild src/mcp-server.ts --bundle --platform=node --format=esm --outfile=dist/mcp-server.mjs --external:better-sqlite3"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
     "@modelcontextprotocol/sdk": "^1.27.1",
-    "better-sqlite3": "^12.6.2",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
     "@tanstack/react-table": "^8.20.6",
     "@tanstack/react-virtual": "^3.11.1",
-    "framer-motion": "^12.0.0",
-    "react-hook-form": "^7.54.2",
-    "zod": "^3.24.1",
-    "@headlessui/react": "^2.2.0",
-    "lucide-react": "^0.469.0",
+    "better-sqlite3": "^12.6.2",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
     "express": "^4.21.2",
-    "cors": "^2.8.5"
+    "framer-motion": "^12.0.0",
+    "lucide-react": "^0.469.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.54.2",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.6",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
-    "@types/express": "^5.0.0",
-    "@types/cors": "^2.8.17",
-    "@types/node": "^22.10.6",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.27.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^4.0.0",
     "tsx": "^4.21.0",
     "typescript": "~5.7.3",
-    "vite": "^7.2.4",
-    "tailwindcss": "^4.0.0",
-    "postcss": "^8.4.49",
-    "concurrently": "^9.1.2"
+    "vite": "^7.2.4"
   }
 }
