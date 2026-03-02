@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "mcp": "tsx src/mcp-server.ts",
-    "build:mcp": "esbuild src/mcp-server.ts --bundle --platform=node --format=esm --outfile=dist/mcp-server.mjs --external:better-sqlite3"
+    "build:mcp": "esbuild src/mcp-server.ts --bundle --platform=node --format=esm --outfile=dist/mcp-server.mjs --external:better-sqlite3",
+    "test": "vitest"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -44,6 +45,7 @@
     "tailwindcss": "^4.0.0",
     "tsx": "^4.21.0",
     "typescript": "~5.7.3",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vitest": "^4.0.18"
   }
 }

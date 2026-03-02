@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Default database path (can be overridden via env var)
 const DEFAULT_DB_PATH = path.join(__dirname, '../../data/chronicle.db');
-const DB_PATH = process.env.CHRONICLE_DB_PATH || DEFAULT_DB_PATH;
+const getDBPath = () => process.env.CHRONICLE_DB_PATH || DEFAULT_DB_PATH;
 
 let dbInstance: Database.Database | null = null;
 
@@ -23,7 +23,7 @@ export function initDB(verbose = false): Database.Database {
     return dbInstance;
   }
 
-  const db = new Database(DB_PATH, { verbose: verbose ? console.log : undefined });
+  const db = new Database(getDBPath(), { verbose: verbose ? console.log : undefined });
 
   // Enable WAL mode for better concurrent access
   db.pragma('journal_mode = WAL');
@@ -241,7 +241,7 @@ export function getStats(): {
     relationCount,
     journalMode,
     busyTimeout,
-    dbPath: DB_PATH,
+    dbPath: getDBPath(),
     dbSize,
   };
 }

@@ -1,8 +1,10 @@
 # Chronicle
 
-Timeline memory system with MCP integration. Store events from JIRA, Google Calendar, and anything else — then query them directly from Claude mid-conversation.
+Timeline memory system with MCP integration.
 
-Two data stores: a timeline for temporal events (timestamped, typed, with metadata) and a key-value store for persistent context. Both accessible through a React UI and a REST API that connects to the MCP server.
+Claude has no memory between conversations. Chronicle gives it one — a local database of events, calendar data, and persistent notes that it can query directly via MCP.
+
+Two stores: a timeline for timestamped events and a key-value store for persistent notes. Both are available through a React UI and a REST API.
 
 ## Stack
 
