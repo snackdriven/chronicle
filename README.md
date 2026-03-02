@@ -65,7 +65,7 @@ PUT    /api/memory/:key
 DELETE /api/memory/:key
 ```
 
-See `HTTP_API_README.md` for request/response shapes.
+See `docs/HTTP_API_README.md` for request/response shapes.
 
 ## Keyboard shortcuts
 
