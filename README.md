@@ -1,10 +1,8 @@
 # Chronicle
 
-Timeline memory system with MCP integration.
+Claude has no memory between conversations. Chronicle gives it one — a local database of events, calendar data, and persistent notes that it can query directly via MCP. Built because re-explaining the same context every session stopped being something I was willing to do.
 
-Claude has no memory between conversations. Chronicle gives it one — a local database of events, calendar data, and persistent notes that it can query directly via MCP.
-
-Two stores: a timeline for timestamped events and a key-value store for persistent notes. Both are available through a React UI and a REST API.
+Two stores: a timeline for typed, timestamped events and a KV store for the stuff you'd otherwise be pasting into every session by hand. Both have a React UI and REST API.
 
 ## Stack
 
@@ -45,7 +43,7 @@ MCP server
 SQLite
 ```
 
-The backend is a thin proxy between the React app and the MCP server. It doesn't do much on its own — the MCP server handles actual storage.
+The backend is genuinely just a proxy. It forwards requests and gets out of the way — the MCP server does the actual work.
 
 ## API
 
@@ -81,9 +79,9 @@ See `docs/HTTP_API_README.md` for request/response shapes.
 
 ## Data import
 
-Scripts in `scripts/` handle bulk imports from Google Calendar and JIRA. They cache fetched data locally before writing to the database so you can inspect it first. See `docs/import-guides/` for per-source setup.
+Bulk import scripts for Google Calendar and JIRA live in `scripts/`. They pull everything locally first so you can look before anything hits the database. Per-source setup in `docs/import-guides/`.
 
-Credentials go in `.env` — see `.env.example`. Token files and cache files are gitignored.
+Credentials go in `.env` (see `.env.example`). Token and cache files are gitignored.
 
 ## Project structure
 
@@ -103,10 +101,10 @@ docs/                     # Import guides and phase notes
 
 ## Known limitations
 
-- No offline support — requires backend connection
-- KV values must be JSON-serializable
-- Timeline optimized for up to ~100K records; larger sets should use pagination
-- Google Calendar import pulls primary calendar only
+- Needs a running backend — no offline mode
+- KV values have to be JSON-serializable
+- Timeline handles ~100K records fine; past that, lean on pagination
+- Google Calendar import only touches the primary calendar
 
 ## Troubleshooting
 
