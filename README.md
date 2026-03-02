@@ -1,6 +1,6 @@
 # Chronicle
 
-Timeline memory system with MCP integration. Store events from JIRA, Spotify, Google Calendar, and anything else — then query them directly from Claude mid-conversation.
+Timeline memory system with MCP integration. Store events from JIRA, Google Calendar, and anything else — then query them directly from Claude mid-conversation.
 
 Two data stores: a timeline for temporal events (timestamped, typed, with metadata) and a key-value store for persistent context. Both accessible through a React UI and a REST API that connects to the MCP server.
 
@@ -79,7 +79,7 @@ See `docs/HTTP_API_README.md` for request/response shapes.
 
 ## Data import
 
-Scripts in `scripts/` handle bulk imports from Google Calendar, Spotify, and JIRA. They cache fetched data locally before writing to the database so you can inspect it first. See `docs/import-guides/` for per-source setup.
+Scripts in `scripts/` handle bulk imports from Google Calendar and JIRA. They cache fetched data locally before writing to the database so you can inspect it first. See `docs/import-guides/` for per-source setup.
 
 Credentials go in `.env` — see `.env.example`. Token files and cache files are gitignored.
 
@@ -95,7 +95,7 @@ src/
 └── lib/                  # Shared utilities
 server/
 └── index.js              # Express proxy
-scripts/                  # Import scripts (Google Calendar, Spotify, JIRA)
+scripts/                  # Import scripts (Google Calendar, JIRA)
 docs/                     # Import guides and phase notes
 ```
 
