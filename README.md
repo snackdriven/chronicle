@@ -43,7 +43,7 @@ MCP server
 SQLite
 ```
 
-The backend is genuinely just a proxy. It forwards requests and gets out of the way — the MCP server does the actual work.
+The backend is a proxy, nothing more. Forwards requests, gets out of the way.
 
 ## API
 
@@ -96,12 +96,12 @@ src/
 server/
 └── index.js              # Express proxy
 scripts/                  # Import scripts (Google Calendar, JIRA)
-docs/                     # Import guides and phase notes
+docs/                     # HTTP API reference, deployment guide
 ```
 
 ## Known limitations
 
-- Needs a running backend — no offline mode
+- Needs a running backend (no offline mode)
 - KV values have to be JSON-serializable
 - Timeline handles ~100K records fine; past that, lean on pagination
 - Google Calendar import only touches the primary calendar
@@ -120,7 +120,7 @@ pnpm install
 # or from monorepo root: pnpm install
 ```
 
-**Backend connection errors** — check that the backend is running (`pnpm dev:backend`) and that `MEMORY_SERVER_ENDPOINT` is set correctly in `.env`.
+**Backend connection errors**: make sure the backend is running (`pnpm dev:backend`) and `MEMORY_SERVER_ENDPOINT` is set in `.env`.
 
 ## License
 
