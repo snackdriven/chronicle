@@ -24,4 +24,6 @@ jobs:
 
       - run: pnpm install
 
+      - run: pnpm rebuild better-sqlite3
+
       - run: pnpm test --run
