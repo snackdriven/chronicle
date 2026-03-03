@@ -24,6 +24,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm rebuild better-sqlite3
+      - name: Build better-sqlite3 native module
+        run: cd node_modules/better-sqlite3 && npx node-gyp rebuild
 
       - run: pnpm test --run
