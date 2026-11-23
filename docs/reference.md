@@ -12,7 +12,9 @@ The source default resolves to `data/chronicle.db`. A bundled entry point change
 
 The startup scripts do not load `.env` automatically. [.env.example](../.env.example) lists credential placeholders and settings, but copying it does not configure a running process. The browser proxy does not read `MEMORY_SERVER_ENDPOINT` or `MEMORY_HTTP_PORT`; its paths and port are constants in [server/index.js](../server/index.js).
 
-`better-sqlite3` is a native dependency. If pnpm skips its install script, enable its build under your local pnpm policy. The [CI workflow](../.github/workflows/ci.yml) explicitly rebuilds it with `node-gyp`. Installation needs a compatible native binary or a working native build toolchain.
+Use pnpm 12.23.0, matching the pinned [CI workflow](../.github/workflows/ci.yml). [pnpm-workspace.yaml](../pnpm-workspace.yaml) approves the build scripts for the locked `better-sqlite3@12.6.2` and `esbuild@0.27.3` versions. Unreviewed dependency builds still fail the install.
+
+`better-sqlite3` is a native dependency. Installation needs a compatible native binary or a working native build toolchain. CI also explicitly rebuilds it with `node-gyp`.
 
 ## Commands
 
