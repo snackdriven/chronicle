@@ -8,7 +8,7 @@ There's a React browser interface too. Its workspace wiring needs attention befo
 
 ## Start with MCP
 
-Use Node.js 22 and pnpm. In Bash, run from the repository root:
+Use Node.js 22 and pnpm 12.23.0. In Bash, run from the repository root:
 
 ```bash
 pnpm install
